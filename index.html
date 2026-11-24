@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design a Buying Test · EXO26 Session 7</title>
+<meta name="description" content="Team exercise for Exploring the Opportunity 2026, Session 7: practise the buyer conversation, then write one buyer line for your own venture.">
+<style>
+:root{
+  --navy:#000B3D; --ink:#0c1430; --muted:#5b6480; --line:#d7dcec; --soft:#f5f7fd;
+  --blue:#224BA0; --teal:#00AE88; --red:#F1595C; --yellow:#F9B937;
+  --head:Georgia,'Times New Roman',serif; --body:Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{font-family:var(--body); color:var(--ink); background:#fff; line-height:1.5; font-size:17px;}
+a{color:var(--blue);}
+header{background:var(--navy); color:#fff; padding:36px 20px 30px;}
+.wrap{max-width:860px; margin:0 auto; padding:0 20px;}
+header .wrap{padding:0;}
+.kicker{text-transform:uppercase; letter-spacing:2.5px; font-size:12px; font-weight:700; color:var(--yellow);}
+h1{font-family:var(--head); font-size:clamp(34px,6vw,52px); line-height:1.05; margin:10px 0 12px;}
+header p{color:#dfe6ff; font-size:18px; max-width:640px;}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;}
+.chip{background:#0e1a52; border:1px solid #25316b; border-radius:999px; padding:6px 14px; font-size:14px; color:#fff;}
+.chip b{color:var(--yellow);}
+nav{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--line); z-index:5;}
+nav .wrap{display:flex; gap:6px; overflow-x:auto; padding:10px 20px; scrollbar-width:none; align-items:center;}
+nav a{flex:none; text-decoration:none; font-size:14px; font-weight:700; color:var(--navy); background:var(--soft); border:1px solid var(--line); border-radius:999px; padding:6px 12px;}
+#clock{position:fixed; right:16px; bottom:16px; z-index:10; display:none; font:700 20px var(--body); background:var(--red); color:#fff; border:0; border-radius:999px; padding:10px 18px; cursor:pointer; box-shadow:0 4px 14px rgba(0,11,61,.25);}
+#clock.on{display:inline-block;}
+#clock.over{background:var(--navy);}
+section{padding:34px 0 8px; scroll-margin-top:56px;}
+h2{font-family:var(--head); font-size:28px; line-height:1.15; color:var(--navy); margin-bottom:6px; display:flex; align-items:center; gap:12px;}
+h2 .n{flex:none; width:36px; height:36px; border-radius:50%; background:var(--blue); color:#fff; font-family:var(--body); font-size:17px; display:flex; align-items:center; justify-content:center;}
+#s2 h2 .n{background:var(--teal);} #s3 h2 .n{background:var(--red);} #s4 h2 .n{background:var(--yellow); color:var(--navy);}
+.time{font-size:14px; color:var(--muted); margin-bottom:12px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.timer{font:700 13px var(--body); background:var(--navy); color:#fff; border:0; border-radius:999px; padding:5px 12px; cursor:pointer;}
+p + p{margin-top:10px;}
+.lead{font-size:18px;}
+.box{background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-top:14px;}
+.box ul{padding-left:20px;} .box li{margin:4px 0;}
+.pick{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:14px;}
+.pick label{flex-direction:row; align-items:center; gap:10px; font-size:16px;}
+select{font:700 18px var(--body); padding:9px 12px; border:2px solid var(--blue); border-radius:8px; background:#fff; color:var(--navy);}
+#mytrio{margin-top:14px; display:none;}
+#mytrio.on{display:block;}
+.you{background:var(--navy); color:#fff; border-radius:12px; padding:16px 18px;}
+.you b{color:var(--yellow);}
+table{width:100%; border-collapse:collapse; margin-top:12px; font-size:15px;}
+th,td{text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+th{font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:var(--blue); border-bottom:2px solid var(--blue);}
+td.me{background:#fff6e0; font-weight:700; color:var(--navy);}
+.briefs{display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; margin-top:16px;}
+.brief{background:var(--soft); border:1px solid var(--line); border-top:5px solid var(--blue); border-radius:10px; padding:14px 16px;}
+.brief.b{border-top-color:var(--teal);} .brief.c{border-top-color:var(--red);}
+.brief.mine{outline:3px solid var(--yellow); background:#fffaf0;}
+.brief h3{font-size:17px; color:var(--navy);}
+.brief .who{font-size:14px; font-weight:700; color:var(--blue); margin-top:6px;}
+.brief p{font-size:15px; margin-top:6px;}
+.brief .t{font-size:14px; color:var(--muted);}
+.roles{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; margin-top:14px;}
+.role{background:var(--soft); border:1px solid var(--line); border-left:5px solid var(--blue); border-radius:10px; padding:12px 14px;}
+.role:nth-child(2){border-left-color:var(--teal);} .role:nth-child(3){border-left-color:var(--red);}
+.role h3{font-size:16px; color:var(--navy);}
+.role p{font-size:15px; margin-top:4px;}
+.prompt{position:relative; background:var(--navy); color:#e7ebff; border-radius:12px; padding:16px 18px 54px; margin-top:12px;
+  font-family:'SF Mono',Consolas,Menlo,monospace; font-size:14.5px; line-height:1.55; white-space:pre-wrap;}
+.prompt .t{display:block; font-family:var(--body); font-weight:700; color:var(--yellow); font-size:13px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:8px;}
+.copy{position:absolute; right:12px; bottom:12px; font:700 14px var(--body); background:var(--yellow); color:var(--navy); border:0; border-radius:8px; padding:8px 14px; cursor:pointer;}
+.copy.done{background:var(--teal); color:#fff;}
+form{display:grid; grid-template-columns:1fr 1fr; gap:10px 14px; margin-top:14px;}
+form .wide{grid-column:1 / -1;}
+label{font-size:13px; font-weight:700; color:var(--navy); display:flex; flex-direction:column; gap:4px;}
+input{font:16px var(--body); padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink);}
+input:focus,select:focus{outline:2px solid var(--blue); border-color:var(--blue);}
+.ex{font-size:15px; color:var(--muted); margin-top:10px;}
+.warn{border-left:5px solid var(--red);}
+.share{background:var(--navy); color:#fff; border-radius:12px; padding:18px 20px; margin-top:12px;}
+.share b{color:var(--yellow);}
+.clear{font:700 13px var(--body); background:none; border:1px solid var(--line); color:var(--muted); border-radius:8px; padding:6px 10px; cursor:pointer; margin-top:12px;}
+footer{color:var(--muted); font-size:14px; padding:36px 0 48px; border-top:1px solid var(--line); margin-top:36px;}
+@media (max-width:600px){ form{grid-template-columns:1fr;} h2{font-size:24px;} body{font-size:16px;} table{font-size:14px;} th,td{padding:7px 6px;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Exploring the Opportunity 2026 · Session 7 · Teams</div>
+    <h1>Design a buying test</h1>
+    <p>Practise the buyer conversation on a health brief, then write one buyer line for your own 200€ venture.</p>
+    <div class="chips">
+      <span class="chip"><b>30 min</b> in trios of teams</span>
+      <span class="chip">roles: <b>founder · buyer · reviewer</b></span>
+      <span class="chip">Final pitches: <b>Tue 1 Dec</b></span>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Steps"><div class="wrap">
+  <a href="#trio">Your trio</a><a href="#s1">1 · Prepare</a><a href="#s2">2 · Rounds</a><a href="#s3">3 · Your venture</a><a href="#s4">4 · Your line</a><a href="#prompts">Prompts</a><a href="#after">After class</a>
+</div></nav>
+<button id="clock" type="button" title="Tap to stop the timer"></button>
+
+<main class="wrap">
+
+<section id="trio">
+  <h2>Your trio and your brief</h2>
+  <p class="lead">Teams work in trios by number: <strong>01·02·03</strong>, <strong>04·05·06</strong>, <strong>07·08·09</strong>, <strong>10·11·12</strong>, <strong>13·14·15</strong>. In each trio, the lowest number takes brief A, the next B, the highest C.</p>
+  <div class="pick">
+    <label for="team">Your team number
+      <select id="team">
+        <option value="">Choose…</option>
+        <option>01</option><option>02</option><option>03</option><option>04</option><option>05</option>
+        <option>06</option><option>07</option><option>08</option><option>09</option><option>10</option>
+        <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+      </select>
+    </label>
+  </div>
+  <div id="mytrio">
+    <div class="you" id="youline"></div>
+    <table aria-label="Who plays which role in each round">
+      <thead><tr><th>Round · 4 min</th><th>Founder pitches</th><th>Buyer decides</th><th>Reviewer asks</th></tr></thead>
+      <tbody id="rot"></tbody>
+    </table>
+    <p class="ex">The buyer plays the buyer from the <strong>founder's</strong> brief. A team missing from your trio? Work as a pair and take turns as the reviewer.</p>
+  </div>
+
+  <div class="briefs">
+    <div class="brief" id="bA"><h3>A · Missed appointments</h3><div class="who">Buyer: a clinic operations lead</div><p>Is reminder outreach worth funding for one service?</p><p class="t"><strong>Test within €200:</strong> show a fictional appointment list and two reminder scripts. Ask how empty slots are counted and who owns the budget.</p></div>
+    <div class="brief b" id="bB"><h3>B · Rehab benefit</h3><div class="who">Buyer: an insurer or employer benefits lead</div><p>Which members, and which outcome, would justify a pilot?</p><p class="t"><strong>Test within €200:</strong> mock up a one-page benefit offer. Compare a fee per eligible member with a fee per active user. Ask what would trigger renewal.</p></div>
+    <div class="brief c" id="bC"><h3>C · Care coordination</h3><div class="who">Buyer: a family caregiver paying directly</div><p>Which coordination task is worth a monthly fee?</p><p class="t"><strong>Test within €200:</strong> show a fictional shared calendar with a paid coordination option. Ask for a concrete next step at a stated price.</p></div>
+  </div>
+</section>
+
+<section id="s1">
+  <h2><span class="n">1</span>Prepare your pitch</h2>
+  <div class="time">6 minutes · on your brief <button class="timer" data-min="6" type="button">Start 6-min timer</button></div>
+  <p class="lead">Choose <strong>your buyer, one assumption, a price and a baseline</strong>: what happens today, without you? Then draw <strong>the money and the data</strong>, in two colours.</p>
+  <form autocomplete="off">
+    <label>Our buyer <input id="r_buyer" placeholder="the operations lead at a 12-doctor clinic"></label>
+    <label>Our price <input id="r_price" placeholder="€300 a month for one service"></label>
+    <label class="wide">One assumption we're testing <input id="r_assume" placeholder="empty slots cost the clinic more than our fee"></label>
+    <label class="wide">Today, without us (a number) <input id="r_base" placeholder="1 in 10 patients misses the appointment"></label>
+    <label>The money: who pays whom? <input id="r_money" placeholder="clinic budget → us"></label>
+    <label>The data: who sees what? <input id="r_data" placeholder="appointment list → us; reminders → patient"></label>
+  </form>
+  <div class="box warn"><strong>AI can write two competing offers or a fictional scenario</strong> (prompt 1 below). Keep anything AI made apart from what a real person said.</div>
+</section>
+
+<section id="s2">
+  <h2><span class="n">2</span>Pitch, buy, review. Then rotate.</h2>
+  <div class="time">3 rounds × 4 minutes <button class="timer" data-min="4" type="button">Start 4-min timer</button></div>
+  <div class="roles">
+    <div class="role"><h3>Founder</h3><p>Pitch your offer in 90 seconds, then answer the buyer.</p></div>
+    <div class="role"><h3>Buyer</h3><p>Name your budget line. Say yes, no, or "yes, if…". Real buyers have a boss and a reason to say no.</p></div>
+    <div class="role"><h3>Reviewer</h3><p>Ask: <strong>what would you need to see to change your decision?</strong></p></div>
+  </div>
+  <p class="ex">Pick your team number above to see who plays what in each round.</p>
+  <form autocomplete="off">
+    <label>The budget line our buyer named <input id="r_line" placeholder="the patient-access budget"></label>
+    <label>Their "yes, if…" <input id="r_if" placeholder="yes, if you plug into our booking system"></label>
+    <label class="wide">What would change their decision <input id="r_change" placeholder="20 fewer empty slots a month in one service"></label>
+  </form>
+</section>
+
+<section id="s3">
+  <h2><span class="n">3</span>Now your own 200€ venture</h2>
+  <div class="time">8 minutes <button class="timer" data-min="8" type="button">Start 8-min timer</button></div>
+  <p class="lead">Design <strong>one real test</strong> you can run before 1 December, with what's left of your 200€.</p>
+  <form autocomplete="off">
+    <label>Who exactly will buy? <input id="v_buyer" placeholder="gym owners in Gràcia"></label>
+    <label>The action that counts <input id="v_action" placeholder="prepay"></label>
+    <label>For what, at what price? <input id="v_price" placeholder="€30 for a month of our class-booking bot"></label>
+    <label>Total cost of the test (€) <input id="v_cost" placeholder="40" inputmode="decimal"></label>
+    <label>We commit if… <input id="v_commit" placeholder="3 of 15 pay"></label>
+    <label>We pivot if… <input id="v_pivot" placeholder="none do: we try personal trainers"></label>
+  </form>
+  <div class="box">
+    <ul>
+      <li><strong>The action must cost the buyer something:</strong> money, a signature, a booked meeting. "I'd use it" doesn't count.</li>
+      <li><strong>Decide the threshold now,</strong> or every result will look like a reason to continue.</li>
+      <li>The role-play answers were rehearsal, not evidence.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s4">
+  <h2><span class="n">4</span>Your buyer line</h2>
+  <div class="time">4 minutes <button class="timer" data-min="4" type="button">Start 4-min timer</button></div>
+  <p class="lead">It writes itself from step 3. Copy it, then paste it into your <strong>week 8 log, under "What we tried"</strong>.</p>
+  <div class="prompt"><span class="t">Our buyer line</span><span id="line"></span><button class="copy" data-target="line" type="button">Copy</button></div>
+  <p class="ex">Week 8 log on <a href="https://200eurochallenge.com">200eurochallenge.com</a> by <strong>Sun 29 Nov, 23:59</strong>. Two teams read their line at 11:45.</p>
+</section>
+
+<section id="prompts">
+  <h2>Prompts to start from</h2>
+  <p>Ask AI, then check with real people: the AI doesn't know your buyers, you do. Pick your team number above and prompt 1 fills in your brief; replace anything in <strong>[brackets]</strong>.</p>
+
+  <div class="prompt"><span class="t">1 · Two competing offers (phase 1)</span><span id="p1"></span><button class="copy" data-target="p1" type="button">Copy</button></div>
+
+  <div class="prompt"><span class="t">2 · Rehearse with an AI buyer</span><span id="p2"></span><button class="copy" data-target="p2" type="button">Copy</button></div>
+
+  <div class="prompt"><span class="t">3 · Stress-test your buyer line (phase 4)</span><span id="p3"></span><button class="copy" data-target="p3" type="button">Copy</button></div>
+
+  <div class="box">
+    <strong>No AI log today.</strong> Keep your prompts: they go into the AI log of your final deliverable.
+  </div>
+</section>
+
+<section id="after">
+  <h2>After class</h2>
+  <div class="share">The <b>buyer</b>, the <b>action</b> that counts, and the <b>number</b> that makes you commit.</div>
+  <div class="box">
+    <ul>
+      <li>Run your test this week</li>
+      <li>Log week 8 on <a href="https://200eurochallenge.com">200eurochallenge.com</a> by <strong>Sun 29 Nov, 23:59</strong></li>
+      <li>Before Fri 27 Nov: read Paul Graham, <a href="https://paulgraham.com/startupideas.html">"How to Get Startup Ideas"</a></li>
+      <li>Bring the result to the final pitch on <strong>Tue 1 Dec, 09:00</strong></li>
+    </ul>
+  </div>
+  <button class="clear" id="clear" type="button">Clear everything on this page</button>
+  <p class="ex">What you type stays on this device only.</p>
+</section>
+
+</main>
+
+<footer><div class="wrap">Exploring the Opportunity 2026 · MSc in Innovation &amp; Entrepreneurship · Esade · Session 7, Opportunities in Healthcare</div></footer>
+
+<script>
+(function(){
+  var KEY='exo26-s7-buying-test';
+  var BRIEFS={
+    A:{name:'A · Missed appointments', what:'an automated reminder service that cuts missed appointments', buyer:'a clinic operations lead'},
+    B:{name:'B · Rehab benefit', what:'a digital physiotherapy (rehab) programme offered as a health benefit', buyer:'an insurer or employer benefits lead'},
+    C:{name:'C · Care coordination', what:'a paid service that coordinates appointments, medication and visits for an older relative', buyer:'a family caregiver paying directly'}
+  };
+  var PH={
+    A:{r_buyer:'the operations lead at a 12-doctor clinic', r_price:'€300 a month for one service', r_assume:'empty slots cost the clinic more than our fee', r_base:'1 in 10 patients misses the appointment', r_money:'clinic budget → us', r_data:'appointment list → us; reminders → patient', r_line:'the patient-access budget', r_if:'yes, if you plug into our booking system', r_change:'20 fewer empty slots a month in one service'},
+    B:{r_buyer:'the benefits lead at a 500-person company', r_price:'€4 per eligible employee a month', r_assume:'staff with back pain will use a rehab app if work pays', r_base:'sick days lost to back pain today', r_money:'benefits budget → us (or via the insurer)', r_data:'exercise data → physio; usage totals only → employer', r_line:'the employee wellbeing budget', r_if:'yes, if people are still active after 3 months', r_change:'the share of staff still active at 3 months'},
+    C:{r_buyer:'the daughter of a 78-year-old who lives alone', r_price:'€29 a month', r_assume:'families will pay to stop chasing appointments and prescriptions', r_base:'hours a week the family spends coordinating care', r_money:'family → us', r_data:'calendar and medication list → family and us', r_line:'household money, like a phone bill', r_if:'yes, if it saves me two calls a week', r_change:'a free first month that really saves time'}
+  };
+  var ids=['r_buyer','r_price','r_assume','r_base','r_money','r_data','r_line','r_if','r_change','v_buyer','v_action','v_price','v_cost','v_commit','v_pivot'];
+  var store={};
+  try{ store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ store={}; }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} }
+  function el(id){ return document.getElementById(id); }
+  function val(id){ var x=el(id).value.trim(); return x || el(id).placeholder; }
+  function pad(n){ return (n<10?'0':'')+n; }
+
+  // restore inputs
+  ids.forEach(function(id){ if(store[id]) el(id).value=store[id]; el(id).addEventListener('input',function(){ store[id]=el(id).value; save(); render(); }); });
+
+  // trio and brief
+  var sel=el('team');
+  function trioOf(n){ var first=Math.floor((n-1)/3)*3+1; return [first,first+1,first+2]; }
+  function letterOf(n){ return 'ABC'[(n-1)%3]; }
+  function showTrio(){
+    var v=sel.value, box=el('mytrio');
+    ['A','B','C'].forEach(function(L){ el('b'+L).classList.remove('mine'); });
+    var ph=PH[v?letterOf(parseInt(v,10)):'A'];
+    Object.keys(ph).forEach(function(id){ el(id).placeholder=ph[id]; });
+    if(!v){ box.classList.remove('on'); render(); return; }
+    var n=parseInt(v,10), t=trioOf(n), L=letterOf(n), b=BRIEFS[L];
+    el('b'+L).classList.add('mine');
+    el('youline').innerHTML='Team <b>'+pad(n)+'</b> · trio <b>'+t.map(pad).join('·')+'</b> · your brief: <b>'+b.name+'</b>, buyer: '+b.buyer+'.';
+    var order=[[0,1,2],[1,2,0],[2,0,1]], rows='';
+    order.forEach(function(o,r){
+      rows+='<tr><td>Round '+(r+1)+'</td>'+o.map(function(k){ var tn=t[k]; return '<td'+(tn===n?' class="me"':'')+'>Team '+pad(tn)+' ('+'ABC'[k]+')</td>'; }).join('')+'</tr>';
+    });
+    el('rot').innerHTML=rows;
+    box.classList.add('on');
+    render();
+  }
+  sel.addEventListener('change',function(){ store.team=sel.value; save(); showTrio(); });
+  if(store.team){ sel.value=store.team; }
+
+  function render(){
+    var L=sel.value?letterOf(parseInt(sel.value,10)):null, b=L?BRIEFS[L]:null;
+    var what=b?b.what:'[what you sell, from your brief]', who=b?b.buyer:'[the buyer in your brief]';
+    el('line').textContent='We think '+val('v_buyer')+' will '+val('v_action')+' at '+val('v_price')+'. Our test costs €'+val('v_cost').replace(/^€/,'')+'. We commit if '+val('v_commit')+', and pivot if '+val('v_pivot')+'.';
+    el('p1').textContent='We\'re selling '+what+' to '+who+' in Barcelona.\n\nWrite two competing one-page offers with different prices and different pricing units (per month, per member, per active user). Then list the five hardest questions this buyer would ask before paying, and what evidence would answer each.';
+    el('p2').textContent='Act as '+who+' in Barcelona with a tight budget and a boss to convince. I\'ll pitch you '+what+'. Ask me the hard questions a real buyer would ask, one at a time, and wait for my answer each time. At the end, tell me which budget line would pay for it, whether you\'d say yes, no or "yes, if…", and what you would need to see to change your decision.';
+    el('p3').textContent='Our 200€ venture: [one line on what we sell, to whom]. Our buyer line for a test we\'ll run before 1 December:\n"'+el('line').textContent+'"\n\nBe blunt. Does the action really cost the buyer something? Is the threshold high enough to mean something, and decided before we start? What could make the result misleading? Suggest a cheaper or faster version of the same test.';
+  }
+
+  // timers
+  var clock=el('clock'), end=0, iv=null;
+  function tick(){
+    var s=Math.round((end-Date.now())/1000);
+    if(s<=0){ clock.textContent='Time!'; clock.classList.add('over'); clearInterval(iv); iv=null; try{ navigator.vibrate&&navigator.vibrate(300); }catch(e){} return; }
+    clock.textContent='⏱ '+Math.floor(s/60)+':'+pad(s%60);
+  }
+  document.querySelectorAll('.timer').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      end=Date.now()+parseInt(btn.getAttribute('data-min'),10)*60000;
+      clock.classList.add('on'); clock.classList.remove('over');
+      if(iv) clearInterval(iv); iv=setInterval(tick,500); tick();
+    });
+  });
+  clock.addEventListener('click',function(){ if(iv) clearInterval(iv); iv=null; clock.classList.remove('on','over'); });
+
+  // copy buttons
+  function fallback(t){ var a=document.createElement('textarea'); a.value=t; document.body.appendChild(a); a.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(a); }
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=el(b.getAttribute('data-target')).textContent;
+      function ok(){ b.textContent='Copied'; b.classList.add('done'); setTimeout(function(){ b.textContent='Copy'; b.classList.remove('done'); },1600); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok,function(){ fallback(t); ok(); }); }
+      else { fallback(t); ok(); }
+    });
+  });
+
+  el('clear').addEventListener('click',function(){
+    if(!confirm('Clear everything you typed on this page?')) return;
+    store={}; save(); ids.forEach(function(id){ el(id).value=''; }); sel.value=''; showTrio();
+  });
+
+  showTrio();
+})();
+</script>
+</body>
+</html>
